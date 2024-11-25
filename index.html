@@ -2,14 +2,19 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>草顺莓WIKI</title>
     <style>
+        /* 基础样式 */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -26,32 +31,35 @@
             font-size: 30px;
         }
 
-        header nav {
+        nav ul {
             display: flex;
-            font-size: 20px;
+            flex-direction: row;
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
-        header nav ul {
-    list-style: none; /* 移除列表项的默认样式 */
-    margin: 0; /* 移除默认的外边距 */
-    padding: 0; /* 移除默认的内边距 */
-    display: flex; /* 使用flex布局使列表项水平排列 */
-}
-
-        header nav ul li {
+        nav ul li {
             margin: 0 10px;
         }
 
-        header nav ul li a {
+        nav ul li a {
             color: #fff;
             text-decoration: none;
         }
 
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
         main {
             display: flex;
+            flex: 1;
             margin: 20px;
         }
 
@@ -66,18 +74,19 @@
             margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-height: calc(100vh - 140px); /* 确保给底栏留出空间 */
+            overflow-y: auto;
+            scrollbar-width: none; /* 隐藏滚动条（Firefox） */
         }
 
-        .sidebar section h2 {
-            margin-top: 0;
+        .sidebar section::-webkit-scrollbar {
+            display: none; /* 隐藏滚动条（Chrome, Safari） */
         }
 
         .sidebar section ul {
             list-style: none;
             margin: 0;
             padding: 0;
-            max-height: 725px; /* 设置最大高度 */
-            overflow-y: auto; /* 添加垂直滚动条 */
         }
 
         .sidebar section ul li {
@@ -87,10 +96,10 @@
         .sidebar section ul li a {
             text-decoration: none;
             color: #333;
-            display: block; /* 使链接占据整个li的高度 */
-            white-space: nowrap; /* 防止文本自动换行 */
-            overflow: hidden; /* 隐藏超出部分 */
-            text-overflow: ellipsis; /* 显示省略号 */
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .content {
@@ -99,7 +108,7 @@
 
         .content h1 {
             margin-top: 0;
-            font-size: 50px
+            font-size: 50px;
         }
 
         .content .updates, .content .recommended {
@@ -115,27 +124,56 @@
             color: #fff;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            margin-top: auto;
         }
 
-        /* 新增按钮样式 */
-        .popular-btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
 
-        /* 保持section的最小高度 */
-        .sidebar section.popular {
-            min-height: 35px; /* 根据实际情况调整 */
+            .content h1 {
+                font-size: 32px;
+            }
+
+            main {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            .sidebar section {
+                max-height: calc(25vh - 20px); /* 热门内容在竖屏时占四分之一屏幕 */
+            }
+
+            .content {
+                width: 100%;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -143,20 +181,20 @@
     <header>
         <div class="logo">草顺莓WIKI</div>
         <nav>
-            <ul>
+            <ul class="nav-list">
                 <li><a href="#">首页</a></li>
                 <li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=jQAnlSDb5vqTDJwAGGuH8zLrmmDnqtJk&jump_from=webapi&authKey=jmv3EOyCOt3BKlGLgF93mdbuOm7siYRybYytz31/k/2WNzRhoDnYd/6C0BpZXA4y" target="_blank">加入我们</a></li>
                 <li><a href="#">联系方式</a></li>
             </ul>
+            <button class="menu-toggle">☰</button>
         </nav>
     </header>
     <main>
         <aside class="sidebar">
             <section class="popular">
                 <h2>热门内容</h2>
-                <ul>
-                    <h2>热门内容</h2>
-                    <!-- API数据将在这里动态插入 -->
+                <ul id="popular-list">
+                    <li>加载中...</li>
                 </ul>
             </section>
         </aside>
@@ -169,18 +207,10 @@
                     <li><a href="https://caomei269.github.io/none.html">美美之家1123事件</a></li>
                 </ul>
             </div>
-            <div class="updates">
-                <h2>历史文章</h2>
-                <ul>
-                    <li><a href="https://caomei269.github.io/%E7%BE%A4%E5%86%85%E9%AA%82%E6%88%98.html">莓莓之家群内骂战</a></li>
-                </ul>
-            </div>	
             <div class="recommended">
                 <h2>推荐文章</h2>
                 <ul>
                     <li><a href="https://caomei269.github.io/none.html">莓莓之家</a></li>
-                    <li><a href="https://caomei269.github.io/none.html">美美之家</a></li>
-                    <li><a href="https://caomei269.github.io/none.html">玄甲军</a></li>
                 </ul>
             </div>
         </section>
@@ -189,51 +219,32 @@
         <p>©感谢寒冰菇的贡献</p>
     </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const popularSection = document.querySelector('.popular');
-            const popularList = document.createElement('ul');
-            const popularBtn = document.createElement('button');
-            popularBtn.className = 'popular-btn';
-            popularBtn.textContent = '查看热门内容';
-            popularBtn.onclick = function() {
-                window.open('https://top.baidu.com/board', '_blank');
-            };
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-list').classList.toggle('show');
+        });
 
-            const updateLayout = (isPortrait) => {
-                if (isPortrait) {
-                    popularSection.innerHTML = '';
-                    popularSection.appendChild(popularBtn);
-                } else {
-                    popularSection.innerHTML = '';
-                    popularSection.appendChild(popularList);
-                    fetchHotContent();
-                }
-            };
+        // 动态加载热门内容
+        document.addEventListener('DOMContentLoaded', function () {
+            const popularList = document.getElementById('popular-list');
 
-            const mediaQuery = window.matchMedia("(orientation: portrait)");
-            mediaQuery.addEventListener('change', (e) => {
-                updateLayout(e.matches);
-            });
-
-            // 初始化时检查屏幕方向
-            updateLayout(mediaQuery.matches);
-
-            function fetchHotContent() {
-                fetch('https://v.api.aa1.cn/api/bilibili-rs/')
-                    .then(response => response.json())
-                    .then(data => {
-                        data.data.forEach(item => {
-                            const li = document.createElement('li');
-                            const a = document.createElement('a');
-                            a.href = item.link;
-                            a.textContent = item.title;
-                            a.target = '_blank';
-                            li.appendChild(a);
-                            popularList.appendChild(li);
-                        });
-                    })
-                    .catch(error => console.error('Error fetching data: ', error));
-            }
+            fetch('https://v.api.aa1.cn/api/bilibili-rs/')
+                .then(response => response.json())
+                .then(data => {
+                    popularList.innerHTML = ''; // 清空加载提示
+                    data.data.forEach(item => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = item.link;
+                        a.textContent = item.title;
+                        a.target = '_blank';
+                        li.appendChild(a);
+                        popularList.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('热门内容加载失败:', error);
+                    popularList.innerHTML = '<li>加载失败，请稍后再试。</li>';
+                });
         });
     </script>
 </body>
