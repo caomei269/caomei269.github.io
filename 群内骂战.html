@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>莓莓之家历史骂站</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .war {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .war-header {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .war-details {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .war-duration {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>莓莓之家历史战争</h1>
+    <div id="wars" class="wars">
+        <!-- 战争信息将通过JavaScript动态添加 -->
+    </div>
+
+    <script>
+        const wars = [
+            {
+                title: "一战：莓莓之家vs疣态国",
+                leader: "@杀手sans 代表疣态国首领",
+                duration: "🕰️6.6-7.24(持续时间约49天)"
+            },
+            {
+                title: "二战：莓莓之家vs赤字分国",
+                leader: "@艾特我的是傻* 代表赤字分国将军",
+                duration: "🕰️7.4–7.5(持续时间约1天)"
+            },
+            {
+                title: "三战：莓莓之家vs雪莲国（原内战）",
+                leader: "@锤头鲨 代表雪莲国国王",
+                duration: "🕰️7.6-7.14(持续时间约9天)"
+            },
+            {
+                title: "四战：莓莓之家vs孙吧集团（前雪莲国）（复仇）",
+                leader: "@青花梓 代表孙吧集团总裁（前为雪莲国国王）",
+                duration: "🕰️7.15–7.30(持续时间约15天)"
+            }
+        ];
+
+        function createWarElement(war) {
+            const warDiv = document.createElement('div');
+            warDiv.className = 'war';
+
+            const header = document.createElement('h2');
+            header.className = 'war-header';
+            header.textContent = war.title;
+            warDiv.appendChild(header);
+
+            const details = document.createElement('p');
+            details.className = 'war-details';
+            details.innerHTML = `${war.leader} <span class="war-duration">${war.duration}</span>`;
+            warDiv.appendChild(details);
+
+            return warDiv;
+        }
+
+        const warsContainer = document.getElementById('wars');
+        wars.forEach(war => {
+            warsContainer.appendChild(createWarElement(war));
+        });
+    </script>
+</body>
+</html>
