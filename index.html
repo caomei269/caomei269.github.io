@@ -111,24 +111,66 @@
             width: 100%;
             bottom: 0;
         }
+
+        /* 新增按钮样式 */
+        .popular-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('https://v.api.aa1.cn/api/bilibili-rs/')
-                .then(response => response.json())
-                .then(data => {
-                    const sidebar = document.querySelector('.sidebar section.popular ul');
-                    data.data.forEach(item => {
-                        const li = document.createElement('li');
-                        const a = document.createElement('a');
-                        a.href = item.link;
-                        a.textContent = item.title;
-                        a.target = '_blank';
-                        li.appendChild(a);
-                        sidebar.appendChild(li);
-                    });
-                })
-                .catch(error => console.error('Error fetching data: ', error));
+            const popularSection = document.querySelector('.popular');
+            const popularList = document.querySelector('.popular ul');
+            const popularBtn = document.createElement('button');
+            popularBtn.className = 'popular-btn';
+            popularBtn.textContent = '查看热门内容';
+            popularBtn.onclick = function() {
+                window.open('https://v.api.aa1.cn/api/bilibili-rs/', '_blank');
+            };
+
+            const updateLayout = (isPortrait) => {
+                if (isPortrait) {
+                    popularSection.innerHTML = '';
+                    popularSection.appendChild(popularBtn);
+                } else {
+                    popularSection.innerHTML = '';
+                    popularSection.appendChild(popularList);
+                    fetchHotContent();
+                }
+            };
+
+            const mediaQuery = window.matchMedia("(orientation: portrait)");
+            mediaQuery.addEventListener('change', (e) => {
+                updateLayout(e.matches);
+            });
+
+            // 初始化时检查屏幕方向
+            updateLayout(mediaQuery.matches);
+
+            function fetchHotContent() {
+                fetch('https://v.api.aa1.cn/api/bilibili-rs/')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.data.forEach(item => {
+                            const li = document.createElement('li');
+                            const a = document.createElement('a');
+                            a.href = item.link;
+                            a.textContent = item.title;
+                            a.target = '_blank';
+                            li.appendChild(a);
+                            popularList.appendChild(li);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching data: ', error));
+            }
         });
     </script>
 </head>
@@ -139,6 +181,7 @@
             <section class="popular">
                 <h2>热门内容</h2>
                 <ul>
+                    <h2>热门内容</h2>
                     <!-- API数据将在这里动态插入 -->
                 </ul>
             </section>
