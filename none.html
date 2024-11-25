@@ -1,1 +1,195 @@
-寒冰菇正在努力记录中
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>草顺莓WIKI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center; /* 添加居中样式 */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            margin-left: 20px;
+            font-size: 24px;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column; /* 修改为垂直布局 */
+            align-items: center; /* 水平居中 */
+            margin: 20px;
+        }
+
+        .sidebar {
+            width: 25%;
+            margin-right: 20px;
+        }
+
+        .sidebar section {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar section h2 {
+            margin-top: 0;
+        }
+
+        .sidebar section ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar section ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar section ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .content {
+            width: 75%;
+        }
+
+        .content h1 {
+            margin-top: 0;
+        }
+
+        .content .updates, .content .recommended {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .war {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%; /* 设置宽度为80% */
+            margin-left: auto; /* 自动边距 */
+            margin-right: auto; /* 自动边距 */
+        }
+
+        .war-header {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .war-details {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .war-duration {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">草顺莓WIKI</div>
+        <nav>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="https://caomei269.github.io/">首页</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="content">
+            <h1 style="text-align: center;">莓莓之家历史战争</h1> <!-- 标题居中 -->
+            <div id="wars" class="wars">
+                <!-- 战争信息将通过JavaScript动态添加 -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>©感谢寒冰菇的贡献</p>
+    </footer>
+    <script>
+        const wars = [
+            {
+                title: "寒冰菇正在努力记录中",
+                leader: "尽请",
+                duration: "期待"
+            },
+            {
+
+        function createWarElement(war) {
+            const warDiv = document.createElement('div');
+            warDiv.className = 'war';
+
+            const header = document.createElement('h2');
+            header.className = 'war-header';
+            header.textContent = war.title;
+            warDiv.appendChild(header);
+
+            const details = document.createElement('p');
+            details.className = 'war-details';
+            details.innerHTML = `${war.leader} <span class="war-duration">${war.duration}</span>`;
+            warDiv.appendChild(details);
+
+            return warDiv;
+        }
+
+        const warsContainer = document.getElementById('wars');
+        wars.forEach(war => {
+            warsContainer.appendChild(createWarElement(war));
+        });
+    </script>
+</body>
+</html>
