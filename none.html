@@ -5,241 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>草顺莓WIKI</title>
     <style>
-                body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
 
-header, footer {
-    background-color: #333;
-    color: #fff;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            margin: 0;
+        }
 
-header {
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        header {
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-header .logo {
-    margin-left: 20px;
-    font-size: 24px;
-}
+        header .logo {
+            margin-left: 20px;
+            font-size: 24px;
+        }
 
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
 
-header nav ul li {
-    margin: 0 15px;
-}
+        header nav ul li {
+            margin: 0 15px;
+        }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
 
-.sidebar {
-    width: 25%;
-    margin-right: 20px;
-}
+        .sidebar {
+            width: 25%;
+            margin-right: 20px;
+        }
 
-.sidebar section {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .sidebar section, .content .updates, .content .recommended, .war {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.sidebar section h2 {
-    margin-top: 0;
-}
+        .sidebar section h2, .war-header {
+            margin-top: 0;
+        }
 
-.sidebar section ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        .sidebar section ul, .war-details {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-.sidebar section ul li {
-    margin-bottom: 10px;
-}
+        .sidebar section ul li, .war-details {
+            margin-bottom: 10px;
+        }
 
-.sidebar section ul li a {
-    text-decoration: none;
-    color: #333;
-}
+        .sidebar section ul li a, .war-details {
+            text-decoration: none;
+            color: #333;
+        }
 
-.content {
-    width: 75%;
-}
+        .content {
+            width: 75%;
+        }
 
-.content h1 {
-    margin-top: 0;
-}
+        .content h1 {
+            margin-top: 0;
+            text-align: center; /* 标题居中 */
+        }
 
-.content .updates, .content .recommended {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
 
-header, footer {
-    background-color: #333;
-    color: #fff;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
+        footer p {
+            text-align: center;
+            margin: 0;
+        }
 
-header {
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .war {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 使战争信息居中 */
+        }
 
-header .logo {
-    margin-left: 20px;
-    font-size: 24px;
-}
-
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
-
-.sidebar {
-    width: 25%;
-    margin-right: 20px;
-}
-
-.sidebar section {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar section h2 {
-    margin-top: 0;
-}
-
-.sidebar section ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar section ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar section ul li a {
-    text-decoration: none;
-    color: #333;
-}
-
-.content {
-    width: 75%;
-}
-
-.content h1 {
-    margin-top: 0;
-}
-
-.content .updates, .content .recommended {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-}
-
-footer p {
-    text-align: center;
-    margin: 0;
-}
-
-.war {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.war-header {
-    font-size: 24px;
-    color: #333;
-}
-
-.war-details {
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-.war-duration {
-    color: #666;
-}
+        .war-details {
+            text-align: center; /* 详细描述文字居中 */
+        }
     </style>
 </head>
 <body>
@@ -247,18 +124,13 @@ footer p {
         <div class="logo">草顺莓WIKI</div>
         <nav>
             <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
                 <li><a href="https://caomei269.github.io/">首页</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="content">
-            <h1 style="text-align: center;">还没记录</h1> <!-- 标题居中 -->
+            <h1>还没记录</h1>
             <div id="wars" class="wars">
                 <!-- 战争信息将通过JavaScript动态添加 -->
             </div>
@@ -273,21 +145,6 @@ footer p {
                 title: "寒冰菇正在努力记录中",
                 leader: "尽请期待",
                 duration: ""
-            },
-            {
-                title: "",
-                leader: "",
-                duration: ""
-            },
-            {
-                title: "",
-                leader: "",
-                duration: ""
-            },
-            {
-                title: "",
-                leader: "",
-                duration: ""
             }
         ];
 
@@ -297,12 +154,12 @@ footer p {
 
             const header = document.createElement('h2');
             header.className = 'war-header';
-            header.textContent = war.title;
+            header.textContent = war.title || '暂无标题';
             warDiv.appendChild(header);
 
             const details = document.createElement('p');
             details.className = 'war-details';
-            details.innerHTML = `${war.leader} <span class="war-duration">${war.duration}</span>`;
+            details.innerHTML = war.leader ? `${war.leader} <span class="war-duration">${war.duration}</span>` : '暂无领导者信息';
             warDiv.appendChild(details);
 
             return warDiv;
@@ -315,4 +172,3 @@ footer p {
     </script>
 </body>
 </html>
-
