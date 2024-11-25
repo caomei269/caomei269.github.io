@@ -15,23 +15,30 @@
         header {
             background-color: #333;
             color: #fff;
-            padding: 10px 0;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 60px;
         }
 
         header .logo {
-            margin-left: 20px;
             font-size: 30px;
         }
 
-        header nav ul {
+        header nav {
+            display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
-            display: flex;
         }
+
+        header nav ul {
+    list-style: none; /* 移除列表项的默认样式 */
+    margin: 0; /* 移除默认的外边距 */
+    padding: 0; /* 移除默认的内边距 */
+    display: flex; /* 使用flex布局使列表项水平排列 */
+}
 
         header nav ul li {
             margin: 0 15px;
@@ -124,16 +131,71 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        /* 保持section的最小高度 */
+        .sidebar section.popular {
+            min-height: 35px; /* 根据实际情况调整 */
+        }
     </style>
+</head>
+<body>
+    <header>
+        <div class="logo">草顺莓WIKI</div>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=jQAnlSDb5vqTDJwAGGuH8zLrmmDnqtJk&jump_from=webapi&authKey=jmv3EOyCOt3BKlGLgF93mdbuOm7siYRybYytz31/k/2WNzRhoDnYd/6C0BpZXA4y" target="_blank">加入我们</a></li>
+                <li><a href="#">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside class="sidebar">
+            <section class="popular">
+                <h2>热门内容</h2>
+                <ul>
+                    <h2>热门内容</h2>
+                    <!-- API数据将在这里动态插入 -->
+                </ul>
+            </section>
+        </aside>
+        <section class="content">
+            <h1>欢迎来到莓莓WIKI</h1>
+            <p>这里是草顺莓及其友邦的历史合订本！</p>
+            <div class="updates">
+                <h2>最新更新</h2>
+                <ul>
+                    <li><a href="https://caomei269.github.io/none.html">美美之家1123事件</a></li>
+                </ul>
+            </div>
+            <div class="updates">
+                <h2>历史文章</h2>
+                <ul>
+                    <li><a href="https://caomei269.github.io/%E7%BE%A4%E5%86%85%E9%AA%82%E6%88%98.html">莓莓之家群内骂战</a></li>
+                </ul>
+            </div>	
+            <div class="recommended">
+                <h2>推荐文章</h2>
+                <ul>
+                    <li><a href="https://caomei269.github.io/none.html">莓莓之家</a></li>
+                    <li><a href="https://caomei269.github.io/none.html">美美之家</a></li>
+                    <li><a href="https://caomei269.github.io/none.html">玄甲军</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>©感谢寒冰菇的贡献</p>
+    </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const popularSection = document.querySelector('.popular');
-            const popularList = document.querySelector('.popular ul');
+            const popularList = document.createElement('ul');
             const popularBtn = document.createElement('button');
             popularBtn.className = 'popular-btn';
             popularBtn.textContent = '查看热门内容';
             popularBtn.onclick = function() {
-                window.open('https://www.bilibili.com/v/popular/rank/all', '_blank');
+                window.open('https://v.api.aa1.cn/api/bilibili-rs/', '_blank');
             };
 
             const updateLayout = (isPortrait) => {
@@ -173,46 +235,5 @@
             }
         });
     </script>
-</head>
-<body>
-    <!-- 你的HTML结构 -->
-    <main>
-        <aside class="sidebar">
-            <section class="popular">
-                <h2>热门内容</h2>
-                <ul>
-                    <h2>热门内容</h2>
-                    <!-- API数据将在这里动态插入 -->
-                </ul>
-            </section>
-        </aside>
-        <section class="content">
-            <h1>欢迎来到莓莓WIKI</h1>
-            <p>这里是草顺莓及其友邦的历史合订本！</p>
-            <div class="updates">
-                <h2>最新更新</h2>
-                <ul>
-                    <li><a href="https://caomei269.github.io/none.html">美美之家1123事件</a></li>
-                </ul>
-            </div>
-            <div class="updates">
-                <h2>历史文章</h2>
-                <ul>
-                    <li><a href="https://caomei269.github.io/%E7%BE%A4%E5%86%85%E9%AA%82%E6%88%98.html">莓莓之家群内骂战</a></li>
-                </ul>
-            </div>	
-            <div class="recommended">
-                <h2>推荐文章</h2>
-                <ul>
-                    <li><a href="https://caomei269.github.io/none.html">莓莓之家</a></li>
-                    <li><a href="https://caomei269.github.io/none.html">美美之家</a></li>
-                    <li><a href="https://caomei269.github.io/none.html">玄甲军</a></li>
-                </ul>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>©感谢寒冰菇的贡献</p>
-    </footer>
 </body>
 </html>
