@@ -23,7 +23,7 @@
 
         header .logo {
             margin-left: 20px;
-            font-size: 24px;
+            font-size: 30px;
         }
 
         header nav ul {
@@ -68,6 +68,8 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            max-height: 725px; /* 设置最大高度 */
+            overflow-y: auto; /* 添加垂直滚动条 */
         }
 
         .sidebar section ul li {
@@ -77,6 +79,10 @@
         .sidebar section ul li a {
             text-decoration: none;
             color: #333;
+            display: block; /* 使链接占据整个li的高度 */
+            white-space: nowrap; /* 防止文本自动换行 */
+            overflow: hidden; /* 隐藏超出部分 */
+            text-overflow: ellipsis; /* 显示省略号 */
         }
 
         .content {
@@ -85,12 +91,13 @@
 
         .content h1 {
             margin-top: 0;
+            font-size: 50px
         }
 
         .content .updates, .content .recommended {
             background-color: #fff;
             padding: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -105,36 +112,34 @@
             bottom: 0;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://v.api.aa1.cn/api/bilibili-rs/')
+                .then(response => response.json())
+                .then(data => {
+                    const sidebar = document.querySelector('.sidebar section.popular ul');
+                    data.data.forEach(item => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = item.link;
+                        a.textContent = item.title;
+                        a.target = '_blank';
+                        li.appendChild(a);
+                        sidebar.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Error fetching data: ', error));
+        });
+    </script>
 </head>
 <body>
-    <header>
-        <div class="logo">草顺莓WIKI</div>
-        <nav>
-            <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="https://caomei269.github.io">首页</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- 你的HTML结构 -->
     <main>
         <aside class="sidebar">
-            <section class="news">
-                <h2>最新消息</h2>
-                <ul>
-                    <li><a href="#">美美之家1123事件</a></li>
-                    
-                </ul>
-            </section>
             <section class="popular">
                 <h2>热门内容</h2>
                 <ul>
-                    <li><a href="https://caomei269.github.io/%E7%BE%A4%E5%86%85%E9%AA%82%E6%88%98.html">莓莓之家群内骂战</a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
+                    <!-- API数据将在这里动态插入 -->
                 </ul>
             </section>
         </aside>
@@ -145,14 +150,12 @@
                 <h2>最新更新</h2>
                 <ul>
                     <li><a href="https://caomei269.github.io/none.html">美美之家1123事件</a></li>
-                    
                 </ul>
             </div>
-		    <div class="updates">
+            <div class="updates">
                 <h2>历史文章</h2>
                 <ul>
                     <li><a href="https://caomei269.github.io/%E7%BE%A4%E5%86%85%E9%AA%82%E6%88%98.html">莓莓之家群内骂战</a></li>
-                    
                 </ul>
             </div>	
             <div class="recommended">
