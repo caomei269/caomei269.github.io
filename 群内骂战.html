@@ -3,244 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>草顺莓WIKI</title>
+    <title>美美之家1123事件 - 草顺莓WIKI</title>
     <style>
+        /* 基本布局样式 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* 确保页面高度占满视口 */
+        }
+
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* 页面最小高度为视口高度 */
+        }
 
-header, footer {
+        main {
+            flex: 1; /* 主内容区自动扩展，推动底栏到底部 */
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        footer {
     background-color: #333;
     color: #fff;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
-
-header {
+    text-align: center; /* 保证文字水平居中 */
     padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* 使用flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
 }
 
-header .logo {
-    margin-left: 20px;
-    font-size: 24px;
-}
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-header nav ul li {
-    margin: 0 15px;
-}
+        header nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
+        header nav ul li {
+            margin-left: 15px;
+        }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-.sidebar {
-    width: 25%;
-    margin-right: 20px;
-}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.sidebar section {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
 
-.sidebar section h2 {
-    margin-top: 0;
-}
+        h2 {
+            text-align: left; /* 标题文字居左 */
+            font-size: 22px;
+            margin: 20px 0 10px;
+            border-bottom: 2px solid #ddd; /* 添加下方横线 */
+            padding-bottom: 5px; /* 横线与文字之间增加间距 */
+        }
 
-.sidebar section ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+            text-align: justify;
+        }
 
-.sidebar section ul li {
-    margin-bottom: 10px;
-}
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
 
-.sidebar section ul li a {
-    text-decoration: none;
-    color: #333;
-}
-
-.content {
-    width: 100%;
-}
-
-.content h1 {
-    margin-top: 0;
-}
-
-.content .updates, .content .recommended {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-
-header, footer {
-    background-color: #333;
-    color: #fff;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
-
-header {
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo {
-    margin-left: 20px;
-    font-size: 24px;
-}
-
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
-
-.sidebar {
-    width: 25%;
-    margin-right: 20px;
-}
-
-.sidebar section {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar section h2 {
-    margin-top: 0;
-}
-
-.sidebar section ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar section ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar section ul li a {
-    text-decoration: none;
-    color: #333;
-}
-
-.content {
-    width: 75%;
-}
-
-.content h1 {
-    margin-top: 0;
-}
-
-.content .updates, .content .recommended {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-}
-
-footer p {
-    text-align: center;
-    margin: 0;
-}
-
-.war {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.war-header {
-    font-size: 24px;
-    color: #333;
-}
-
-.war-details {
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-.war-duration {
-    color: #666;
-}
-
+        ul li {
+            font-size: 16px;
+            line-height: 1.8;
+        }
     </style>
 </head>
 <body>
@@ -248,71 +110,37 @@ footer p {
         <div class="logo">草顺莓WIKI</div>
         <nav>
             <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
                 <li><a href="https://caomei269.github.io/">首页</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="content">
-            <h1 style="text-align: center;">莓莓之家历史战争</h1> <!-- 标题居中 -->
-            <div id="wars" class="wars">
-                <!-- 战争信息将通过JavaScript动态添加 -->
-            </div>
-        </section>
+        <div class="container">
+            <h1>美美之家1123事件</h1>
+            <section id="起因">
+                <h2>起因</h2>
+                <p>2024年11月23日，美美之家群内，成员@五宝呵呵投诉@阳平小奶酪在群内对其进行了“开盒”行为。所谓“开盒”是指在公开场合揭露他人隐私或嘲讽他人。</p>
+                <p>群主沈阳美食家接到投诉后，立即在群内质问@阳平小奶酪。事件因公开质问而引发群内关注。</p>
+            </section>
+            <section id="过程">
+                <h2>过程</h2>
+                <p>在质问过程中，@阳平小奶酪否认相关指控，并要求对其进行澄清。然而，@五宝呵呵坚持其说法，并表示已有截图作为证据。</p>
+                <p>双方争执升级，期间@阳平小奶酪反指控@五宝呵呵，声称对方曾在群内散播谣言，并提及此前的“短信轰炸”事件或与@五宝呵呵有关。这一指控使矛盾进一步复杂化。</p>
+            </section>
+            <section id="结果">
+                <h2>结果</h2>
+                <p>为平息争议，群主沈阳美食家决定同时移除@五宝呵呵和@阳平小奶酪。这一决定暂时恢复了群内秩序，但引发了一些成员的不满。</p>
+            </section>
+            <section id="事件评价">
+                <h2>事件评价</h2>
+                <p>沈阳美食家的快速介入体现了对群体秩序的重视，但处理方式存在不足，缺乏对双方充分沟通和证据评估的时间。</p>
+                <p>公开质问虽能短时间内聚焦问题，却也容易造成对话紧张化，尤其在双方互相指控的情况下，事件走向失控的风险较大。</p>
+                <p>此事件表明，群体管理中应更多考虑对争议的冷静处理，而非简单移除成员。长期来看，这样的处理方式可能削弱成员对群主裁决公正性的信任。</p>
+            </section>
+        </div>
     </main>
     <footer>
-        <p>©感谢寒冰菇的贡献的文案</p>
+        <p>@海绵宝宝草顺莓</p>
     </footer>
-    <script>
-        const wars = [
-            {
-                title: "一战：莓莓之家vs疣态国",
-                leader: "@杀手sans 代表疣态国首领",
-                duration: "🕰️6.6-7.24(持续时间约49天)"
-            },
-            {
-                title: "二战：莓莓之家vs赤字分国",
-                leader: "@艾特我的是傻* 代表赤字分国将军",
-                duration: "🕰️7.4–7.5(持续时间约1天)"
-            },
-            {
-                title: "三战：莓莓之家vs雪莲国（原内战）",
-                leader: "@锤头鲨 代表雪莲国国王",
-                duration: "🕰️7.6-7.14(持续时间约9天)"
-            },
-            {
-                title: "四战：莓莓之家vs孙吧集团（前雪莲国）（复仇）",
-                leader: "@青花梓 代表孙吧集团总裁（前为雪莲国国王）",
-                duration: "🕰️7.15–7.30(持续时间约15天)"
-            }
-        ];
-
-        function createWarElement(war) {
-            const warDiv = document.createElement('div');
-            warDiv.className = 'war';
-
-            const header = document.createElement('h2');
-            header.className = 'war-header';
-            header.textContent = war.title;
-            warDiv.appendChild(header);
-
-            const details = document.createElement('p');
-            details.className = 'war-details';
-            details.innerHTML = `${war.leader} <span class="war-duration">${war.duration}</span>`;
-            warDiv.appendChild(details);
-
-            return warDiv;
-        }
-
-        const warsContainer = document.getElementById('wars');
-        wars.forEach(war => {
-            warsContainer.appendChild(createWarElement(war));
-        });
-    </script>
 </body>
 </html>
