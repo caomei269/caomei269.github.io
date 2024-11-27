@@ -3,244 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>草顺莓WIKI</title>
+    <title>美美之家1123事件 - 草顺莓WIKI</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
 
-header, footer {
-    background-color: #333;
-    color: #fff;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-header {
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-header .logo {
-    margin-left: 20px;
-    font-size: 24px;
-}
+        header nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
 
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
+        header nav ul li {
+            margin-left: 15px;
+        }
 
-header nav ul li {
-    margin: 0 15px;
-}
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
+        .container {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px 0;
+        }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
+        .content {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.sidebar {
-    width: 25%;
-    margin-right: 20px;
-}
+        .content h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
 
-.sidebar section {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .content section {
+            margin-bottom: 20px;
+        }
 
-.sidebar section h2 {
-    margin-top: 0;
-}
+        .content section h2 {
+            font-size: 22px;
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
 
-.sidebar section ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        .content section p {
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: justify;
+            margin: 10px 0;
+        }
 
-.sidebar section ul li {
-    margin-bottom: 10px;
-}
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
 
-.sidebar section ul li a {
-    text-decoration: none;
-    color: #333;
-}
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
 
-.content {
-    width: 100%;
-}
+            .sidebar {
+                width: 250px;
+                background-color: #fff;
+                border-radius: 8px;
+                padding: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
 
-.content h1 {
-    margin-top: 0;
-}
-
-.content .updates, .content .recommended {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-
-header, footer {
-    background-color: #333;
-    color: #fff;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
-
-header {
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo {
-    margin-left: 20px;
-    font-size: 24px;
-}
-
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
-
-.sidebar {
-    width: 25%;
-    margin-right: 20px;
-}
-
-.sidebar section {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar section h2 {
-    margin-top: 0;
-}
-
-.sidebar section ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar section ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar section ul li a {
-    text-decoration: none;
-    color: #333;
-}
-
-.content {
-    width: 75%;
-}
-
-.content h1 {
-    margin-top: 0;
-}
-
-.content .updates, .content .recommended {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-}
-
-footer p {
-    text-align: center;
-    margin: 0;
-}
-
-.war {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.war-header {
-    font-size: 24px;
-    color: #333;
-}
-
-.war-details {
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-.war-duration {
-    color: #666;
-}
-
+            .content {
+                flex: 1;
+                margin-left: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -248,71 +116,37 @@ footer p {
         <div class="logo">草顺莓WIKI</div>
         <nav>
             <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
                 <li><a href="https://caomei269.github.io/">首页</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="content">
-            <h1 style="text-align: center;">美美之家1123事件</h1> <!-- 标题居中 -->
-            <div id="wars" class="wars">
-                <!-- 战争信息将通过JavaScript动态添加 -->
-            </div>
-        </section>
-    </main>
+    <div class="container">
+        <main class="content">
+            <h1>美美之家1123事件</h1>
+            <section id="起因">
+                <h2>起因</h2>
+                <p>2024年11月23日，美美之家群内，成员@五宝呵呵投诉@阳平小奶酪在群内对其进行了“开盒”行为。所谓“开盒”是指以为违规行驶获取他人隐私。</p>
+                <p>群主@沈阳美食家接到投诉后，立即在群内质问@阳平小奶酪。事件因公开质问而引发群内关注。</p>
+            </section>
+            <section id="过程">
+                <h2>过程</h2>
+                <p>在质问过程中，@阳平小奶酪否认相关指控，并称自己不认识@五宝呵呵。然而，@五宝呵呵坚持其说法，并要求道歉。</p>
+                <p>双方争执升级，期间@阳平小奶酪反指控@五宝呵呵，声称对方曾也进行过“开盒”，并提及此前的对@沈阳美食家的“短信轰炸”一事或与@五宝呵呵有关。这一指控使矛盾进一步复杂化。</p>
+            </section>
+            <section id="结果">
+                <h2>结果</h2>
+                <p>为平息争议，群主@沈阳美食家决定同时移除@五宝呵呵和@阳平小奶酪。这一决定暂时恢复了群内秩序，但引发了一些成员的不满。</p>
+            </section>
+            <section id="事件评价">
+                <h2>事件评价</h2>
+                <p>@沈阳美食家的快速介入体现了对群体秩序的重视，但处理方式存在不足，缺乏对双方充分沟通和证据评估的时间。</p>
+                <p>公开质问虽能短时间内聚焦问题，却也容易造成对话紧张化，尤其在双方互相指控的情况下，事件走向失控的风险较大。</p>
+                <p>此事件表明，群体管理中应更多考虑对争议的冷静处理，而非简单移除成员。长期来看，这样的处理方式可能削弱成员对群主裁决公正性的信任。</p>
+            </section>
+        </main>
+    </div>
     <footer>
         <p>@海绵宝宝草顺莓</p>
     </footer>
-    <script>
-        const wars = [
-            {
-                title: "起因",
-                leader: "2024年11月23日，美美之家群内，成员@五宝呵呵投诉@阳平小奶酪在群内对其进行了“开盒”行为。群主沈阳美食家收到投诉后，开始调查，并在群内直接质问@阳平小奶酪。",
-                duration: ""
-            },
-            {
-                title: "过程",
-                leader: "沈阳美食家在群内询问事件详情，但@阳平小奶酪否认，表示自己没有进行相关行为，并要求澄清。沈阳美食家未得到满意答复，继续追问，双方的对话引起群内成员关注。随后，@阳平小奶酪反指控@五宝呵呵，称其也有类似行为，并提到沈阳美食家此前遭受的短信轰炸可能与@五宝呵呵有关。双方争论升级，矛盾进一步激化。",
-                duration: ""
-            },
-            {
-                title: "结果",
-                leader: "沈阳美食家决定将@五宝呵呵和@阳平小奶酪同时移出群聊。",
-                duration: ""
-            },
-            {
-                title: "事件评价",
-                leader: "群主沈阳美食家面对成员的指控，快速介入调查，表现了对群内秩序的高度关注，但处理方式过于直接，缺乏深入沟通的时间，可能导致部分成员对裁决的不满。冲突的升级事件中，双方的情绪在调查过程中逐渐升温。沈阳美食家的质问语气加剧了对话的紧张，而@阳平小奶酪的反指控又将矛盾推向更复杂的层面。这说明，群体管理中单纯的公开质问可能导致问题复杂化，尤其是在缺乏证据的情况下，容易引发更大的争议。沈阳美食家选择移除双方以恢复群聊秩序，这在短期内确实有效避免了争执进一步发酵，但从长期来看，这种处理可能引发群成员的疑虑：是否群内的任何争执都会以简单的“移除”收场？群主是否偏向于一方，或者没有给予充分的辩解机会？",
-                duration: ""
-            }
-        ];
-
-        function createWarElement(war) {
-            const warDiv = document.createElement('div');
-            warDiv.className = 'war';
-
-            const header = document.createElement('h2');
-            header.className = 'war-header';
-            header.textContent = war.title;
-            warDiv.appendChild(header);
-
-            const details = document.createElement('p');
-            details.className = 'war-details';
-            details.innerHTML = `${war.leader} <span class="war-duration">${war.duration}</span>`;
-            warDiv.appendChild(details);
-
-            return warDiv;
-        }
-
-        const warsContainer = document.getElementById('wars');
-        wars.forEach(war => {
-            warsContainer.appendChild(createWarElement(war));
-        });
-    </script>
 </body>
 </html>
