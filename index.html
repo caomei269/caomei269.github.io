@@ -221,48 +221,58 @@
         <p>到底咯~</p>
     </footer>
     <script>
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('.nav-list').classList.toggle('show');
-        });
-
         // 动态加载热门内容
-        document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const popularList = document.getElementById('popular-list');
 
     function loadPopularContent() {
-        fetch('https://v.api.aa1.cn/api/bilibili-rs/')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP 错误！状态码: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                popularList.innerHTML = ''; // 清空加载提示
-                if (data && Array.isArray(data.data)) {
-                    data.data.forEach(item => {
-                        const li = document.createElement('li');
-                        const a = document.createElement('a');
-                        a.href = item.link;
-                        a.textContent = item.title;
-                        a.target = '_blank';
-                        li.appendChild(a);
-                        popularList.appendChild(li);
-                    });
-                } else {
-                    throw new Error('API 数据结构异常');
-                }
-            })
-            .catch(error => {
-                console.error('热门内容加载失败:', error);
-                popularList.innerHTML = '<li>加载中...</li>';
-                setTimeout(loadPopularContent, 2000); // 2秒后重试
-            });
-    }
+    fetch('https://apis.tianapi.com/nethot/index?key=dc460f3683fbd117a0ae74268f1f9206')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP 错误！状态码: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); // 打印返回数据，检查结构
+            popularList.innerHTML = ''; // 清空加载提示
+            if (data.code === 200 && data.result && Array.isArray(data.result.list)) {
+                data.result.list.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+
+                    // 设置链接为百度搜索结果
+                    const searchQuery = encodeURIComponent(item.keyword || '无标题');
+                    a.href = `https://www.baidu.com/s?wd=${searchQuery}`;
+                    a.textContent = item.keyword || '无标题';
+                    a.target = '_blank'; // 在新标签页打开百度搜索结果
+
+                    li.appendChild(a);
+                    popularList.appendChild(li);
+                });
+            } else {
+                throw new Error('API 数据结构异常');
+            }
+        })
+        .catch(error => {
+            console.error('热门内容加载失败:', error);
+            popularList.innerHTML = '<li>加载中...</li>';
+            setTimeout(loadPopularContent, 2000); // 2秒后重试
+        });
+}
+
+
+// 提取链接函数
+function extractLink(brief) {
+    const match = brief.match(/https?:\/\/[^\s<>"']+/); // 匹配 URL
+    return match ? match[0] : null;
+}
+
 
     // 初始加载
     loadPopularContent();
 });
+
 
     </script>
 </body>
