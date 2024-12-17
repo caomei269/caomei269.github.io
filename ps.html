@@ -127,21 +127,29 @@ ul li {
         <div class="container">
             <h1>PS下载</h1>
             <section id="下载方式">
-                <h2>下载方式</h2>
-                <p><li><a href="https://www.123pan.com/s/N7M7Vv-3s9od.html"target="_blank">123云盘</a></li></p>
-                <p><li><a href="https://pan.baidu.com/s/1cLi7s9aMWaGa0GZTrbOWCg?pwd=pfs2"target="_blank">百度网盘</a></li></p>
-            </section>
+    <h2>下载方式</h2>
+    <ul>
+        <li><a href="https://www.123pan.com/s/N7M7Vv-3s9od.html" target="_blank">123云盘</a></li>
+        <li><a href="https://pan.baidu.com/s/1cLi7s9aMWaGa0GZTrbOWCg?pwd=pfs2" target="_blank">百度网盘</a></li>
+    </ul>
+</section>
+
             <section id="恶意风险盗版提示弹窗解决办法">
-                <h2>恶意风险盗版提示弹窗解决办法</h2>
-                <p>﹂ 英文弹窗”This non-genuine Adobe app will bedisabled soon“</p>
-            </p>解决办法：修改系统目录下的UXP扩展com.adobe.ccx.start样式文件
-                    com.adobe.ccx.start-7.4.0（不同版本数字可能不同，目前2024 v25.6版本开始以后是7.4.0）
-                    C:\Program Files\Common Files\Adobe\UXP\extensions\com.adobe.ccx.start-7.4.0\css\styles.css
-                    搜索styles.css样式文件以下关键词
-                    background-color":"#1473e6
-                    background-color":"#d7373f
-                    全部替换为 display":"none</p>
-            </section>
+    <h2>恶意风险盗版提示弹窗解决办法</h2>
+    <p>英文弹窗"This non-genuine Adobe app will be disabled soon"的解决办法：</p>
+    <ul>
+        <li>修改系统目录下的UXP扩展com.adobe.ccx.start样式文件</li>
+        <li>找到文件路径：<pre>C:\Program Files\Common Files\Adobe\UXP\extensions\com.adobe.ccx.start-7.4.0\css\styles.css</pre>（不同版本数字可能不同，目前2024 v25.6版本开始以后是7.4.0）</li>
+        <li>搜索styles.css样式文件以下关键词：
+            <ul>
+                <li><pre>background-color:"#1473e6"</pre></li>
+                <li><pre>background-color:"#d7373f"</pre></li>
+            </ul>
+        </li>
+        <li>将上述关键词全部替换为：<pre>display:"none"</pre></li>
+    </ul>
+</section>
+
         </div>
     </main>
     <footer>
