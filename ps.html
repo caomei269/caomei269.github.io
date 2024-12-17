@@ -5,113 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PS下载 - 草顺莓WIKI</title>
     <style>
-   /* 基本布局样式 */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* 确保页面高度占满视口 */
-}
+        /* 基本布局样式 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* 确保页面高度占满视口 */
+        }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* 页面最小高度为视口高度 */
-}
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* 页面最小高度为视口高度 */
+        }
 
-main {
-    flex: 1; /* 主内容区自动扩展，推动底栏到底部 */
-    padding: 20px;
-    background-color: #f0f0f0;
-}
+        main {
+            flex: 1; /* 主内容区自动扩展，推动底栏到底部 */
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center; /* 保证文字水平居中 */
-    padding: 10px 0;
-    display: flex; /* 使用flex布局 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-}
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center; /* 保证文字水平居中 */
+            padding: 10px 0;
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+        }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-header .logo {
-    font-size: 24px;
-    font-weight: bold;
-}
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-}
+        header nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
 
-header nav ul li {
-    margin-left: 15px;
-}
+        header nav ul li {
+            margin-left: 15px;
+        }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-/* 添加媒体查询以适应小屏幕设备 */
-@media (max-width: 800px) {
-    .container {
-        max-width: 100%;
-        margin: 0;
-    }
-}
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
 
-h1 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
+        h2 {
+            text-align: left; /* 标题文字居左 */
+            font-size: 22px;
+            margin: 20px 0 10px;
+            border-bottom: 2px solid #ddd; /* 添加下方横线 */
+            padding-bottom: 5px; /* 横线与文字之间增加间距 */
+        }
 
-h2 {
-    text-align: left; /* 标题文字居左 */
-    font-size: 22px;
-    margin: 20px 0 10px;
-    border-bottom: 2px solid #ddd; /* 添加下方横线 */
-    padding-bottom: 5px; /* 横线与文字之间增加间距 */
-}
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+            text-align: justify;
+        }
 
-p {
-    font-size: 16px;
-    line-height: 1.8;
-    margin: 10px 0;
-    text-align: justify;
-}
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
 
-ul {
-    margin: 10px 0;
-    padding-left: 20px;
-}
+        ul li {
+            font-size: 16px;
+            line-height: 1.8;
+        }
 
-ul li {
-    font-size: 16px;
-    line-height: 1.8;
-}
-
+        pre {
+            white-space: pre-wrap; /* CSS 2.0 */
+            white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            max-width: 100%;
+            overflow: auto;
+        }
     </style>
 </head>
 <body>
@@ -127,29 +132,27 @@ ul li {
         <div class="container">
             <h1>PS下载</h1>
             <section id="下载方式">
-    <h2>下载方式</h2>
-    <ul>
-        <li><a href="https://www.123pan.com/s/N7M7Vv-3s9od.html" target="_blank">123云盘</a></li>
-        <li><a href="https://pan.baidu.com/s/1cLi7s9aMWaGa0GZTrbOWCg?pwd=pfs2" target="_blank">百度网盘</a></li>
-    </ul>
-</section>
-
+                <h2>下载方式</h2>
+                <ul>
+                    <li><a href="https://www.123pan.com/s/N7M7Vv-3s9od.html" target="_blank">123云盘</a></li>
+                    <li><a href="https://pan.baidu.com/s/1cLi7s9aMWaGa0GZTrbOWCg?pwd=pfs2" target="_blank">百度网盘</a></li>
+                </ul>
+            </section>
             <section id="恶意风险盗版提示弹窗解决办法">
-    <h2>恶意风险盗版提示弹窗解决办法</h2>
-    <p>英文弹窗"This non-genuine Adobe app will be disabled soon"的解决办法：</p>
-    <ul>
-        <li>修改系统目录下的UXP扩展com.adobe.ccx.start样式文件</li>
-        <li>找到文件路径：<pre>C:\Program Files\Common Files\Adobe\UXP\extensions\com.adobe.ccx.start-7.4.0\css\styles.css</pre>（不同版本数字可能不同，目前2024 v25.6版本开始以后是7.4.0）</li>
-        <li>搜索styles.css样式文件以下关键词：
-            <ul>
-                <li><pre>background-color:"#1473e6"</pre></li>
-                <li><pre>background-color:"#d7373f"</pre></li>
-            </ul>
-        </li>
-        <li>将上述关键词全部替换为：<pre>display:"none"</pre></li>
-    </ul>
-</section>
-
+                <h2>恶意风险盗版提示弹窗解决办法</h2>
+                <p>英文弹窗"This non-genuine Adobe app will be disabled soon"的解决办法：</p>
+                <ul>
+                    <li>修改系统目录下的UXP扩展com.adobe.ccx.start样式文件</li>
+                    <li>找到文件路径：<pre>C:\Program Files\Common Files\Adobe\UXP\extensions\com.adobe.ccx.start-7.4.0\css\styles.css</pre>（不同版本数字可能不同，目前2024 v25.6版本开始以后是7.4.0）</li>
+                    <li>搜索styles.css样式文件以下关键词：
+                        <ul>
+                            <li><pre>background-color:"#1473e6"</pre></li>
+                            <li><pre>background-color:"#d7373f"</pre></li>
+                        </ul>
+                    </li>
+                    <li>将上述关键词全部替换为：<pre>display:"none"</pre></li>
+                </ul>
+            </section>
         </div>
     </main>
     <footer>
