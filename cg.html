@@ -206,24 +206,24 @@
             // 禁用Ctrl+C和Cmd+C复制
             if ((event.ctrlKey || event.metaKey) && event.key === 'c') {
                 event.preventDefault();
-                alert('复制功能已被禁用，无法复制此页面的内容。');
+               
             }
             // 禁用Ctrl+V粘贴
             if ((event.ctrlKey || event.metaKey) && event.key === 'v') {
                 event.preventDefault();
-                alert('粘贴功能已被禁用，无法粘贴到此页面。');
+                
             }
             // 禁用Ctrl+A全选
             if ((event.ctrlKey || event.metaKey) && event.key === 'a') {
                 event.preventDefault();
-                alert('全选功能已被禁用，无法全选此页面的内容。');
+                
             }
         });
 
         // 禁用右键菜单
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
-            alert('右键菜单已禁用。');
+            
         });
 
         // 禁用选择文本
