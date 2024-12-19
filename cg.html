@@ -117,6 +117,14 @@
             max-width: 100%;
             overflow: auto;
         }
+        
+        /* 防复制样式 */
+        body {
+            -webkit-user-select: none; /* Chrome/Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */
+            user-select: none; /* 标准语法 */
+        }
     </style>
 </head>
 <body>
@@ -192,5 +200,35 @@
     <footer>
         <p>@网络</p>
     </footer>
+    <script>
+        // 防复制脚本
+        document.addEventListener('keydown', function(event) {
+            // 禁用Ctrl+C和Cmd+C复制
+            if ((event.ctrlKey || event.metaKey) && event.key === 'c') {
+                event.preventDefault();
+            }
+            // 禁用Ctrl+V粘贴
+            if ((event.ctrlKey || event.metaKey) && event.key === 'v') {
+                event.preventDefault();
+                
+            }
+            // 禁用Ctrl+A全选
+            if ((event.ctrlKey || event.metaKey) && event.key === 'a') {
+                event.preventDefault();
+                
+            }
+        });
+
+        // 禁用右键菜单
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            
+        });
+
+        // 禁用选择文本
+        document.onselectstart = function() {
+            return false;
+        };
+    </script>
 </body>
 </html>
