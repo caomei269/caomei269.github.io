@@ -16,6 +16,10 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh; /* 页面最小高度为视口高度 */
+            -webkit-user-select: none; /* Chrome/Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */
+            user-select: none; /* 标准语法 */
         }
 
         main {
@@ -117,13 +121,30 @@
             max-width: 100%;
             overflow: auto;
         }
-        
-        /* 防复制样式 */
-        body {
-            -webkit-user-select: none; /* Chrome/Safari */
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* IE10+ */
-            user-select: none; /* 标准语法 */
+
+        /* 自定义右键菜单样式 */
+        #customContextMenu {
+            display: none;
+            position: fixed;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px;
+            z-index: 1000;
+        }
+
+        #customContextMenu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #customContextMenu ul li {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        #customContextMenu ul li:hover {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
@@ -139,7 +160,7 @@
     <main>
         <div class="container">
             <h1>城轨概论</h1>
-            <section id="城轨概论">
+            <section id="dynamicContent">
                 <h2>城市轨道交通的定义</h2>
                 <p>一般指在城市中的固定导轨上运行，主要用于城市客运的交通系统的总称呼。</p>
 
@@ -200,29 +221,39 @@
     <footer>
         <p>@网络</p>
     </footer>
+    <div id="customContextMenu">
+        <ul>
+            <li>你好</li>
+            <li>欢迎来到</li>
+            <li>莓莓WIKI</li>
+        </ul>
+    </div>
     <script>
-        // 防复制脚本
-        document.addEventListener('keydown', function(event) {
-            // 禁用Ctrl+C和Cmd+C复制
-            if ((event.ctrlKey || event.metaKey) && event.key === 'c') {
-                event.preventDefault();
-            }
-            // 禁用Ctrl+V粘贴
-            if ((event.ctrlKey || event.metaKey) && event.key === 'v') {
-                event.preventDefault();
-                
-            }
-            // 禁用Ctrl+A全选
-            if ((event.ctrlKey || event.metaKey) && event.key === 'a') {
-                event.preventDefault();
-                
-            }
+        // 动态加载内容
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/path/to/dynamic/content')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('dynamicContent').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading dynamic content:', error));
         });
 
         // 禁用右键菜单
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
-            
+            const customMenu = document.getElementById('customContextMenu');
+            customMenu.style.display = 'block';
+            customMenu.style.left = `${event.pageX}px`;
+            customMenu.style.top = `${event.pageY}px`;
+        });
+
+        // 点击其他地方隐藏自定义菜单
+        document.addEventListener('click', function(event) {
+            const customMenu = document.getElementById('customContextMenu');
+            if (customMenu.style.display === 'block') {
+                customMenu.style.display = 'none';
+            }
         });
 
         // 禁用选择文本
